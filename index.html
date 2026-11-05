@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#f5eee1">
 <title>Hey, you.</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Nunito:wght@400;600&display=swap">
 <style>
-:root{--bg:#f5eee1;--bg2:#e9dfca;--ink:#3a3632;--brown:#8a6f5a;--sage:#a9b99f;--btn:#62785a;--btnt:#fbf7ee;--card:#fbf7ee;--heart:#c4806f;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#25231f;--bg2:#322e27;--ink:#efe7d8;--brown:#c4a58a;--sage:#7f9578;--btn:#a9bea0;--btnt:#25231f;--card:#34312b;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#25231f;--bg2:#322e27;--ink:#efe7d8;--brown:#c4a58a;--sage:#7f9578;--btn:#a9bea0;--btnt:#25231f;--card:#34312b;color-scheme:dark}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{--bg:#f5eee1;--bg2:#e9dfca;--ink:#3a3632;--brown:#75594a;--sage:#a9b99f;--btn:#50654a;--btnt:#fbf7ee;--card:#fbf7ee;--heart:#c4806f;color-scheme:light only;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:#f5eee1;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html,body{height:100%;margin:0}
-body{background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;overflow-x:hidden;overflow-wrap:break-word;-webkit-tap-highlight-color:transparent}
 .bg{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
 .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;animation:drift 18s ease-in-out infinite alternate}
 .b1{width:60vmax;height:60vmax;background:var(--sage);top:-20vmax;left:-20vmax;opacity:.35}
@@ -19,19 +20,19 @@ body{background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-s
 .dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--brown);opacity:.25;animation:rise 14s linear infinite}
 @keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.1)}}
 @keyframes rise{from{transform:translateY(105vh)}to{transform:translateY(-10vh)}}
-#app{position:relative;z-index:1;min-height:100%}
-.stage{min-height:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:32px 26px;text-align:center;max-width:520px;margin:0 auto}
+#app{position:relative;z-index:1;min-height:100%;display:flex;flex-direction:column}
+.stage{flex:1 0 auto;width:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:32px 26px;text-align:center;max-width:520px;margin:0 auto}
 .fade{animation:fin .7s ease both}
 @keyframes fin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 h1,.serif{font-family:"Fraunces",Georgia,serif;font-weight:400;margin:0;letter-spacing:-.02em}
 h1{font-size:clamp(44px,13vw,64px);line-height:1.05;cursor:default;user-select:none}
 p{margin:0;font-size:18px;line-height:1.55;color:var(--brown);max-width:30ch}
 .q{font-family:"Fraunces",Georgia,serif;font-size:26px;line-height:1.3;color:var(--ink);max-width:20ch}
-.btn{font:600 16px "Nunito",system-ui,sans-serif;background:var(--btn);color:var(--btnt);border:0;border-radius:999px;padding:15px 30px;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.4,.5,1),opacity .4s;min-height:48px}
+.btn{font:600 16px "Nunito",system-ui,sans-serif;background:var(--btn);color:var(--btnt);border:0;border-radius:999px;padding:15px 30px;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.4,.5,1),opacity .4s;min-height:48px;max-width:100%;line-height:1.2;touch-action:manipulation;-webkit-appearance:none;appearance:none}
 .btn:active{transform:scale(.96)}
 .btn.alt{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--brown)}
 .btn:focus-visible,.char:focus-visible,.sign:focus-visible{outline:2px solid var(--brown);outline-offset:3px}
-.row{display:flex;gap:14px;align-items:center;justify-content:center;min-height:70px}
+.row{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;min-height:70px}
 .hid{opacity:0;pointer-events:none}
 .char{cursor:pointer;display:inline-block;background:none;border:0;padding:0;line-height:0}
 .char svg{display:block;width:140px;height:auto;overflow:visible}
@@ -44,16 +45,16 @@ p{margin:0;font-size:18px;line-height:1.55;color:var(--brown);max-width:30ch}
 .sign::after{content:"";position:absolute;left:50%;bottom:-20px;width:3px;height:20px;background:var(--brown);transform:translateX(-50%)}
 .sign.wob{animation:wob .5s}
 @keyframes wob{25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
-.hint{font-size:14px;color:var(--brown);opacity:.75}
+.hint{font-size:15px;color:var(--brown)}
 .dots{display:flex;gap:8px}
 .dots i{width:8px;height:8px;border-radius:50%;background:var(--brown);opacity:.25;transition:.4s}
 .dots i.on{opacity:1;background:var(--btn)}
-.line{font-family:"Fraunces",Georgia,serif;font-size:clamp(28px,8vw,38px);line-height:1.25;max-width:16ch;min-height:5.2em;display:flex;align-items:center;opacity:0;transition:opacity 1s ease,transform 1s ease;transform:translateY(10px)}
+.line{font-family:"Fraunces",Georgia,serif;font-size:clamp(28px,8vw,38px);line-height:1.25;max-width:17ch;min-height:6.6em;display:flex;align-items:center;opacity:0;transition:opacity 1s ease,transform 1s ease;transform:translateY(10px)}
 .line.in{opacity:1;transform:none}
-.big{font-family:"Fraunces",Georgia,serif;font-size:clamp(54px,17vw,84px);line-height:1;letter-spacing:-.03em}
+.big{font-family:"Fraunces",Georgia,serif;font-size:clamp(46px,16vw,84px);line-height:1;letter-spacing:-.03em}
 .late{opacity:0;animation:fin 1.4s ease forwards}
 .rv{display:none}.rv.on{display:flex;flex-direction:column;align-items:center;gap:18px;animation:fin 1s ease both}
-.aside{display:inline-block;transform:rotate(-3deg);font-size:14px;color:var(--brown);font-style:italic}
+.aside{display:inline-block;transform:rotate(-3deg);font-size:15px;color:var(--brown);font-style:italic}
 .bar{width:180px;height:4px;border-radius:4px;background:rgba(138,111,90,.22);overflow:hidden}
 .bar i{display:block;height:100%;width:0;background:var(--btn);border-radius:4px;animation:ld 3.4s ease-in-out forwards}
 @keyframes ld{to{width:100%}}
@@ -89,7 +90,7 @@ const MSG={peng:["Waddle waddle. Hi.","He’s been told you’re great. He agree
 panda:["Panda fact: naps are a personality. Relatable.","Snack break? Always.","He’s been told you’re his favourite human.","Rolling over. That’s all he’s got."],
 pig:["Oink. (Translation: hi.)","Muddy puddles are better with you.","Snort. That was a laugh.","She’s very into jumping. Just so you know."]};
 let tt;const toast=t=>{toastEl.textContent=t;toastEl.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>toastEl.classList.remove("show"),2600)};
-const dodge=b=>{b.style.transform=`translate(${rnd(-60,60)}px,${rnd(-26,26)}px)`};
+const dodge=b=>{b.style.transform=`translate(${rnd(-40,40)}px,${rnd(-22,22)}px)`};
 const reveal=id=>$(id).classList.remove("hid");
 const next=()=>show(S.i+1);
 const S={i:0};
@@ -100,27 +101,27 @@ const steps=[
 ()=>({h:`${char("peng","float")}<h1 id="hey">Hey, you.</h1><p>There’s something I’ve been meaning to tell you.</p><button class="btn" id="go">Continue →</button>`,
 init(){go("#go",next);let n=0;go("#hey",()=>{if(++n===5){toast("You found it. Secret prize: one free hug, redeemable in person.");n=0}})}}),
 // 1 penguin sign
-()=>({h:`<div class="sign" id="sg" role="button" tabindex="0"><span id="st">I like you a normal amount.</span></div>${char("peng","float")}<p class="hint" id="hn">(tap the sign)</p><div class="row"><button class="btn hid" id="nx">Fair enough →</button></div>`,
-init(){go("#nx",next);const f=()=>{$("#st").textContent="Okay, that’s a lie.";$("#sg").classList.add("wob");$("#hn").textContent="";reveal("#nx")};go("#sg",f);$("#sg").onkeydown=e=>{if(e.key==="Enter"||e.key===" ")f()}}}),
+()=>({h:`<div class="sign" id="sg" role="button" tabindex="0"><span id="st">I like you a normal amount.</span></div><p class="hint" id="hn" style="margin-top:10px">(go on, tap the sign)</p>${char("peng","float")}<div class="row"><button class="btn hid" id="nx">Fair enough →</button></div>`,
+init(){go("#nx",next);let done=false;const f=()=>{done=true;$("#st").textContent="Okay, that’s a lie.";$("#sg").classList.add("wob");$("#hn").textContent="";reveal("#nx")};go("#sg",f);const nudge=()=>{const s=$("#sg");if(done||!s)return;s.classList.remove("wob");void s.offsetWidth;s.classList.add("wob");setTimeout(nudge,3500)};setTimeout(nudge,3000);$("#sg").onkeydown=e=>{if(e.key==="Enter"||e.key===" ")f()}}}),
 // 2 panda question
-()=>({h:`${char("panda","float")}<div class="q" id="pq">Important question: do you like me more than sleep?</div><div class="row"><button class="btn" id="y">Yes</button><button class="btn alt" id="no">No</button></div><div class="row"><button class="btn hid" id="nx">Continue →</button></div>`,
+()=>({h:`${char("panda","float")}<div class="q" id="pq">Important question: do you like me more than your sleep?</div><div class="row"><button class="btn" id="y">Yes</button><button class="btn alt" id="no">No</button></div><div class="row"><button class="btn hid" id="nx">Continue →</button></div>`,
 init(){go("#nx",next);let n=0;const yes=()=>{$("#pq").textContent="Correct. It was close, though.";$("#y").classList.add("hid");$("#no").classList.add("hid");reveal("#nx")};go("#y",yes);
 go("#no",()=>{if(n<2){n++;dodge($("#no"));toast(n===1?"Hm, that button’s shy.":"Wrong one. Try again.")}else if(n===2){n=3;$("#no").style.transform="";$("#no").textContent="Okay, yes"}else yes()})}}),
 // 3 pig
 ()=>({h:`<div class="q" id="pt">Peppa Pig is sleeping. Wake her up?</div>${char("pig","float")}<div class="dots" id="pd"><i></i><i></i><i></i></div><p class="hint">(tap her a few times)</p><div class="row"><button class="btn hid" id="nx">Continue →</button></div>`,
-init(){go("#nx",next);let n=0;const L=["zzz…","snort?","Oink! Good morning."];$(".char").addEventListener("click",()=>{if(n>=3)return;$("#pt").textContent=L[n];$("#pd").children[n].classList.add("on");n++;if(n===3)reveal("#nx")})}}),
+init(){go("#nx",next);let n=0;const nd=()=>{const c=$(".char");if(n>0||!c)return;c.classList.remove("boing");void c.offsetWidth;c.classList.add("boing");setTimeout(nd,3500)};setTimeout(nd,3000);const L=["zzz…","snort?","Oink! Good morning."];$(".char").addEventListener("click",()=>{if(n>=3)return;$("#pt").textContent=L[n];$("#pd").children[n].classList.add("on");n++;if(n===3)reveal("#nx")})}}),
 // 4 dodge button
 ()=>({h:`<div style="display:flex;gap:6px;align-items:flex-end">${char("panda","sm")}${char("peng","sm")}${char("pig","sm")}</div><div class="q">Ready for the message?</div><div class="row"><button class="btn" id="rd">I’m ready</button></div>`,
 init(){let n=0;go("#rd",()=>{if(n<2){n++;dodge($("#rd"));toast(n===1?"Too eager.":"Almost. Breathe.")}else next()})}}),
 // 5 gradual reveal
 ()=>({h:`<div class="line" id="ln"></div><div class="dots" id="dd"><i></i><i></i><i></i><i></i></div><div class="row"><button class="btn alt" id="nx">Tap to continue</button></div>${char("panda","sm")}`,
-init(){const L=["Somewhere between all our conversations…","You became my favourite person.","Talking to you is the best part of my day.","Thank you for putting up with my questionable sense of humour."];let k=0;
+init(){const L=["Somewhere between all our conversations…","You became my favourite person.","Talking to you is the best part of my day.","Thank you for putting up with my silly sense of humour."];let k=0;
 const set=()=>{const l=$("#ln");l.classList.remove("in");setTimeout(()=>{l.textContent=L[k];l.classList.add("in")},350);[...$("#dd").children].forEach((d,i)=>d.classList.toggle("on",i<=k))};
 set();go("#nx",()=>{if(++k===L.length)next();else set()})}}),
 // 6 finale
 ()=>({h:`<div class="q" style="font-size:32px">Okay, one last thing.</div><button class="btn" id="go">Go on →</button>`,
 init(){go("#go",()=>{const st=["Decoding…","Reading between the lines…","Almost there…"];app.innerHTML=`<section class="stage fade"><div class="q" id="ds">Decoding…</div><div class="bar"><i></i></div></section>`;let j=0;const iv=setInterval(()=>{j=Math.min(j+1,2);const d=$("#ds");if(d)d.textContent=st[j]},1100);setTimeout(()=>{clearInterval(iv);rev()},3400)});const rev=()=>{app.innerHTML=`<section class="stage fade"><div class="big late" style="animation-delay:.4s">I love you.</div><div class="late" style="align-self:flex-end;animation-delay:1.4s"><span class="aside">(yeah, even more than Cristiano)</span></div><p class="rv" style="max-width:24ch">This was the only way I could have said it.</p><div class="rv">${char("peng","float",true)}</div><div class="rv"><p>Okay, that’s all. For now :)</p><button class="btn" id="fv">Forever? →</button></div><button class="btn alt late" id="tp" style="animation-delay:2.4s">Tap →</button></section>`;bind();addRoses();let r=0;const rvs=document.querySelectorAll(".rv");go("#tp",()=>{rvs[r].classList.add("on");r++;if(r===rvs.length)$("#tp").style.display="none"});
-go("#fv",()=>{app.innerHTML=`<section class="stage fade">${char("panda","float")}<div class="q" style="font-size:30px">OK Jaanu. That’s what I was hoping for.</div>${char("peng","sm",true)}</section>`;bind();for(let i=0;i<14;i++){const h=document.createElement("span");h.className="fh";h.textContent="♥";h.style.left=rnd(5,95)+"vw";h.style.animationDelay=rnd(0,4)+"s";h.style.fontSize=rnd(14,26)+"px";document.body.appendChild(h);setTimeout(()=>h.remove(),12000)}})}}})
+go("#fv",()=>{app.innerHTML=`<section class="stage fade">${char("panda","float")}<div class="big late" style="animation-delay:.3s">OK Jaanu.</div>${char("peng","sm",true)}</section>`;bind();for(let i=0;i<14;i++){const h=document.createElement("span");h.className="fh";h.textContent="♥";h.style.left=rnd(5,95)+"vw";h.style.animationDelay=rnd(0,4)+"s";h.style.fontSize=rnd(14,26)+"px";document.body.appendChild(h);setTimeout(()=>h.remove(),12000)}})}}})
 ];
 function bind(){document.querySelectorAll("[data-c]").forEach(e=>e.addEventListener("click",()=>{e.classList.remove("boing");void e.offsetWidth;e.classList.add("boing");if(Math.random()<.55)toast(pick(MSG[e.dataset.c]))}))}
 function show(i){S.i=i;const s=steps[i]();app.innerHTML=`<section class="stage fade">${s.h}</section>`;bind();s.init();window.scrollTo(0,0)}
